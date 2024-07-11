@@ -81,6 +81,22 @@
         </div>
     </div>
 
+    <!-- Form to handle Delete method -->
+    <div class="form">
+        <h2>Delete Method</h2>
+        <hr>
+        <!-- form to handle the Delete method on Controller -->
+        <form action="/delete" method="post">
+            <label for="putinput">Enter Text:</label>
+            <input type="text" id="delinput">
+            <button type="button" id="delbtn">Delete</button>
+        </form>
+        <div class="output">
+            <span>Result: </span>
+            <span id="del-result" th:text="${delmsg}"></span>
+        </div>
+    </div>
+
     <script>
         $(document).ready(function () {
             // function to send PUT request 
@@ -91,6 +107,20 @@
                     success: function (respnse) {
                         var res = document.getElementById("put-result");
                         res.innerText = "Put Method"
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            // function to send PUT request 
+            $("#delbtn").click(function () {
+                $.ajax({
+                    url: "/delete",
+                    type: "DELETE",
+                    success: function (respnse) {
+                        var res = document.getElementById("del-result");
+                        res.innerText = "Delete Method"
                     }
                 });
             });
