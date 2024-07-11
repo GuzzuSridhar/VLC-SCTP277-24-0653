@@ -11,7 +11,7 @@
         .form {
             border: 1px solid black;
             padding: 2px;
-            width: fit-content;
+            width: 720px;
             margin: auto;
             margin-bottom: 5px;
             text-align: center;
@@ -40,7 +40,7 @@
         <!-- form to handle the Get method on Controller -->
         <form action="/get" method="get">
             <label for="getinput">Enter Text:</label>
-            <input type="text" id="getinput">
+            <input type="text" id="getinput" name="name">
             <button type="submit">Get</button>
         </form>
         <div class="output">
@@ -56,7 +56,7 @@
         <!-- form to handle the Post method on Controller -->
         <form action="/add" method="post">
             <label for="postinput">Enter Text:</label>
-            <input type="text" id="postinput">
+            <input type="text" id="postinput" name="name">
             <button type="submit">Post</button>
         </form>
         <div class="output">
