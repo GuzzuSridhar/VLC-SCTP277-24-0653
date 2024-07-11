@@ -8,23 +8,32 @@
     <style>
         .form {
             border: 1px solid black;
-            padding: 10px;
+            padding: 2px;
             width: fit-content;
             margin: auto;
             margin-bottom: 5px;
+            text-align: center;
         }
 
         .output {
             text-align: center;
-            padding: 10px;
+            padding: 5px;
+        }
+
+        .head {
+            text-align: center;
+            color: orangered;
         }
     </style>
 </head>
 
 <body>
     <!-- Form to handle Get method -->
+    <div class="head">
+        <h1>HTTP Methods Demo</h1>
+    </div>
     <div class="form">
-        <h2>Form handling the Get Method</h2>
+        <h2>Get Method</h2>
         <hr>
         <!-- form to handle the Get method on Controller -->
         <form action="/get" method="get">
@@ -37,9 +46,10 @@
             <span th:text="${getmsg}"></span>
         </div>
     </div>
+
     <!-- Form to handle Post method -->
     <div class="form">
-        <h2>Form handling the Post Method</h2>
+        <h2>Post Method</h2>
         <hr>
         <!-- form to handle the Get method on Controller -->
         <form action="/add" method="post">
