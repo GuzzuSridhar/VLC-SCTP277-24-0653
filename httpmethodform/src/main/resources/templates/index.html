@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         .form {
             border: 1px solid black;
@@ -51,7 +53,7 @@
     <div class="form">
         <h2>Post Method</h2>
         <hr>
-        <!-- form to handle the Get method on Controller -->
+        <!-- form to handle the Post method on Controller -->
         <form action="/add" method="post">
             <label for="postinput">Enter Text:</label>
             <input type="text" id="postinput">
@@ -62,6 +64,38 @@
             <span th:text="${postmsg}"></span>
         </div>
     </div>
+
+    <!-- Form to handle Put method -->
+    <div class="form">
+        <h2>Put Method</h2>
+        <hr>
+        <!-- form to handle the Put method on Controller -->
+        <form action="/edit" method="post">
+            <label for="putinput">Enter Text:</label>
+            <input type="text" id="putinput">
+            <button type="button" id="putbtn">Put</button>
+        </form>
+        <div class="output">
+            <span>Result: </span>
+            <span id="put-result" th:text="${putmsg}"></span>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // function to send PUT request 
+            $("#putbtn").click(function () {
+                $.ajax({
+                    url: "/edit",
+                    type: "PUT",
+                    success: function (respnse) {
+                        var res = document.getElementById("put-result");
+                        res.innerText = "Put Method"
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
