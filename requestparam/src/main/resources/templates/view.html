@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymelaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Demo of Model attribute and the request Parameter</h1>
+    <!-- <a href="/add">Add Names</a> -->
+
+    <h1>Add Names</h1>
+    <hr>
+    <form action="/save">
+        <label for="n">Name</label>
+        <input type="text" id="n" name="input">
+        <button type="submit">Add</button>
+    </form>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Names</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="name:${list}">
+                <td th:text="${name}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

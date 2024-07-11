@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Form to handle Get method -->
+    <div>
+        <h2>Form handling the Get Method</h2>
+        <form action="/get" method="get">
+            <label for="getinput">Enter Text:</label>
+            <input type="text" id="getinput">
+            <button type="submit">Get</button>
+            <div>
+                <span th:text="${getmsg}"></span>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+:root{
+    --primary-color: #563f46;
+    --secondary-color: #c8c3cc;
+}
+
+.centerText{
+    text-align: center;
+    color: var(--primary-color);
+    background-color:var(--secondary-color) ;
+    text-shadow: 1px 1px gray;
+    padding: 20px;
+}
+
+.containerMain{
+    width: fit-content;
+    margin: auto;
+    margin-top: 75px;
+}
+.containerSecondary{
+    width: fit-content;
+    margin: auto;
+    margin-top: 75px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.tableAdd{
+    text-align: left;
+    border: 3px solid var(--primary-color);
+    padding: 10px;
+}
+
+.tableAdd td{
+    padding-right: 15px;
+    padding-bottom: 3px;
+    color: var(--primary-color);
+    padding: 10px;
+}
+
+#sadd{
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.tableView {
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+}
+.tableView th{
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+    padding: 5px;
+}
+.tableView td{
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.tableView thead{
+    background-color: var(--secondary-color);
+}
+
+.tableEdit {
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+}
+.tableEdit th{
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tableEdit thead{
+    background-color: var(--secondary-color);
+}
+
+.tableEdit td{
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+}
+
+
