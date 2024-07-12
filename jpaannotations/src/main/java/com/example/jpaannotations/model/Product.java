@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,10 +44,14 @@ public class Product {
      * unique -- (true/false) specifies if the column can have duplicate values
      * precision & scale -- used to secify the length for bigdecimal value columns
      * 
+     * @Transient -- ignore the field from being added as a column in the database
+     * 
      */
     @Column(name = "product_name", length = 250, unique = true)
     private String name;
     private String description;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
+    @Transient
+    private int temp;
 }
