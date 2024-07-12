@@ -25,4 +25,11 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Query("select c from Customer c where c.custid = :cid")
     Customer findc(int cid);
 
+    /*
+     * Custom queries
+     * using the built-in method naming
+     * https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
+     */
+    Customer findByCustnameIgnoreCase(String custname);
+
 }

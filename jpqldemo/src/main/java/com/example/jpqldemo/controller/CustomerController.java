@@ -46,7 +46,11 @@ public class CustomerController {
     public List<Customer> showByName(@RequestParam("name") String name) {
         // List<Customer> customers =
         return customerRepo.findByCustname(name);
+    }
 
+    @RequestMapping("/finda")
+    public Customer getByName(@RequestParam("name") String name) {
+        return customerRepo.findByCustnameIgnoreCase(name);
     }
 
     @RequestMapping("/populate")
