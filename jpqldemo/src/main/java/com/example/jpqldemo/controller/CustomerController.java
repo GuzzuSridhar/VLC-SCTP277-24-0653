@@ -36,6 +36,13 @@ public class CustomerController {
         return cust.get();
     }
 
+    @RequestMapping("/findname")
+    public List<Customer> showByName(@RequestParam("name") String name) {
+        // List<Customer> customers =
+        return customerRepo.findByCustname(name);
+
+    }
+
     @RequestMapping("/populate")
     public String addData() {
         Customer newCustomer = new Customer();
