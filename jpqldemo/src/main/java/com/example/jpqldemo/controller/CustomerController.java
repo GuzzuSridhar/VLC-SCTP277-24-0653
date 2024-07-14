@@ -58,6 +58,16 @@ public class CustomerController {
         return customerRepo.findByName(name);
     }
 
+    @RequestMapping("/update")
+    public void setName(@RequestParam("name") String name, @RequestParam("id") int id) {
+        customerRepo.updateName(name, id);
+    }
+
+    @RequestMapping("/delete")
+    public void deleteCust(@RequestParam("name") String name) {
+        customerRepo.deleteCustomer(name);
+    }
+
     @RequestMapping("/populate")
     public String addData() {
         Customer newCustomer = new Customer();

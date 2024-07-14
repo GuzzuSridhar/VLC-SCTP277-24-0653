@@ -48,7 +48,7 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Modifying
     @Transactional
     @Query("update Customer c set c.custname=:changedValue  where c.custid=:id ")
-    void updateName(String name, int id);
+    void updateName(String changedValue, int id);
 
     /* query to delete data */
     @Modifying
