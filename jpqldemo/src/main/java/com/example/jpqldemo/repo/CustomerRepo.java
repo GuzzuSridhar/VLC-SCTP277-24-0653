@@ -55,5 +55,4 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Transactional
     @Query("delete from Customer c where lower(c.custname)=lower(?1)")
     void deleteCustomer(String name);
-
 }
