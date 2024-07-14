@@ -53,6 +53,11 @@ public class CustomerController {
         return customerRepo.findByCustnameIgnoreCase(name);
     }
 
+    @RequestMapping("/findb")
+    public Customer getName(@RequestParam("name") String name) {
+        return customerRepo.findByName(name);
+    }
+
     @RequestMapping("/populate")
     public String addData() {
         Customer newCustomer = new Customer();
