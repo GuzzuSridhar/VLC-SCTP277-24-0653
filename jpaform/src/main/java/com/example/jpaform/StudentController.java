@@ -49,6 +49,14 @@ public class StudentController {
         return "viewstudents";
     }
 
+    /* End Point for the search */
+    @RequestMapping("/search")
+    public String search(@RequestParam("kw") String keyWord, Model model) {
+        List<Students> studentsList = studentRepo.search(keyWord);
+        model.addAttribute("students", studentsList);
+        return "viewstudents";
+    }
+
     /* End point for editing a student record */
     @RequestMapping("/edit/{sid}")
     public String editStudent(@PathVariable("sid") int sid, Model model) {
@@ -63,4 +71,5 @@ public class StudentController {
         studentRepo.deleteById(sid);
         return "redirect:/list";
     }
+
 }
