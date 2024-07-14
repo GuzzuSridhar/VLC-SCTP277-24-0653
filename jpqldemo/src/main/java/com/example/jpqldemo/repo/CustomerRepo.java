@@ -59,4 +59,10 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Transactional
     @Query("delete from Customer c where lower(c.custname)=lower(?1)")
     void deleteCustomer(String name);
+
+    /* search query */
+    @Query("select c from Customer c where " +
+            "lower(c.custname) like concat('%', lower(?1) , '%') or " +
+            "concat(c.custid,'') like concat('%', ?1 , '%') ")
+    List<Customer> search(String searchString);
 }

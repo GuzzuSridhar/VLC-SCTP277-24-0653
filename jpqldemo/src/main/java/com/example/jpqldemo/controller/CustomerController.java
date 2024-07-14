@@ -73,6 +73,11 @@ public class CustomerController {
         return customerRepo.sortCustomers();
     }
 
+    @RequestMapping("/search")
+    public List<Customer> searchCust(@RequestParam("term") String keyword) {
+        return customerRepo.search(keyword);
+    }
+
     @RequestMapping("/populate")
     public String addData() {
         Customer newCustomer = new Customer();
