@@ -32,4 +32,7 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
      */
     Customer findByCustnameIgnoreCase(String custname);
 
+    /* Native queries -- written in standard sql */
+    @Query(value = "select * from customers where lower(custname)= :name", nativeQuery = true)
+    Customer findByName(String name);
 }
