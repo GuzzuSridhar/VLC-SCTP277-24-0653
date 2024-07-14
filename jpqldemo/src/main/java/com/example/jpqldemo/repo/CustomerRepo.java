@@ -53,7 +53,7 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     /* query to delete data */
     @Modifying
     @Transactional
-    @Query("delete from Customer c where c.custname=?1")
+    @Query("delete from Customer c where lower(c.custname)=lower(?1)")
     void deleteCustomer(String name);
 
 }
