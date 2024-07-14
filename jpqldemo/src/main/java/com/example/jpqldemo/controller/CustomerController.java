@@ -68,6 +68,11 @@ public class CustomerController {
         customerRepo.deleteCustomer(name);
     }
 
+    @RequestMapping("/sort")
+    public List<Customer> sortCust() {
+        return customerRepo.sortCustomers();
+    }
+
     @RequestMapping("/populate")
     public String addData() {
         Customer newCustomer = new Customer();

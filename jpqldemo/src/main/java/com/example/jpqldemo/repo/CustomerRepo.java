@@ -37,6 +37,10 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
      */
     Customer findByCustnameIgnoreCase(String custname);
 
+    /* Ordering the records */
+    @Query("select c from Customer c order by c.custname desc")
+    List<Customer> sortCustomers();
+
     /*
      * Native queries -- written in standard sql
      * all the table and column names should be that within the database table
