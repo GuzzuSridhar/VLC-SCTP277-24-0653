@@ -24,3 +24,7 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Student> students;
 }
+
+// select s.name as Student, c.name as Course from student s inner join
+// student_courses sc on sc.students_id=s.id inner join course c on
+// sc.courses_id = c.id;
