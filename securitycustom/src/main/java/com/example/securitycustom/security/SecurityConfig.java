@@ -19,11 +19,11 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         UserDetails userAdmin = User.withUsername("Admin")
-                .password("admin")
+                .password(encoder.encode("admin"))
                 .roles("ADMIN")
                 .build();
         UserDetails userAlex = User.withUsername("Alex")
-                .password("pass")
+                .password(encoder.encode("pass"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(userAdmin, userAlex);
