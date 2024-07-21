@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.securityjpa.model.Role;
 import com.example.securityjpa.model.User;
@@ -40,6 +41,19 @@ public class UserController {
         List<Role> listRoles = roleRepository.findAll();
         model.addAttribute("listRoles", listRoles);
         return "adduser";
+    }
+
+    @RequestMapping("/newrole")
+    public String addRole() {
+        return "addroles";
+    }
+
+    @RequestMapping("/saverole")
+    public String saveRole(@RequestParam("name") String roleName) {
+        Role newRole = new Role();
+        newRole.setName(roleName);
+        roleRepository.save(newRole);
+        return "redirect:/";
     }
 
     @RequestMapping("/save")

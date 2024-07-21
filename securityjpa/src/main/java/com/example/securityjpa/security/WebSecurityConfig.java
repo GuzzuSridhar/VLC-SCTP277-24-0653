@@ -36,7 +36,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/logout", "/styles.css").permitAll()
-                        .requestMatchers("/", "/new", "/save").authenticated())
+                        .requestMatchers("/", "/new", "/save", "/newrole", "/saverole").authenticated())
                 .formLogin(fl -> fl
                         .successForwardUrl("/")
                         .permitAll())
