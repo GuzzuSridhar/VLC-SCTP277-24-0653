@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome to User Management</h1>
+    <hr>
+    <p>Logged in as : <span sec:authentication="name"></span></p>
+    <p>You have: <span sec:authentication="principal.authorities[0]"></span>
+        privilege </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>User Name</th>
+                <!-- <th>Enabled</th> -->
+                <th>Role</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="u:${userList}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.userName}"></td>
+                <!-- <td th:text="${u.enabled}"></td> -->
+                <td th:text="${u.userRoles}"></td>
+
+                <td><a th:href="@{'/edit/' +${u.id}}"> edit
+                    </a> <a style="color: red" th:href="@{'/delete/' + ${u.id}}">delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
