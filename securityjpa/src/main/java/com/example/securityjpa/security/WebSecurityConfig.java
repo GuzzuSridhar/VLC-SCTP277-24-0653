@@ -36,9 +36,9 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/logout").permitAll()
-                        .requestMatchers("/", "/add", "/list").authenticated())
+                        .requestMatchers("/", "/new", "/save").authenticated())
                 .formLogin(fl -> fl
-                        .loginProcessingUrl("/")
+                        .successForwardUrl("/")
                         .permitAll())
                 .logout(lo -> lo
                         .logoutSuccessUrl("/login"));

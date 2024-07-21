@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>USer Entry Form</h2>
+        <form action="/save" th:object="${user}">
+            <label for="id">User id</label>
+            <input type="text" th:field="*{id}" id="id" readonly>
+
+            <label for="name">User Name</label>
+            <input type="text" th:field="*{userName}" id="name">
+
+            <label for="pwd">Password</label>
+            <input type="password" th:field="*{password}" id="pwd">
+
+            <!-- display the existing roles -->
+            <div>
+                <th:block th:each="role: ${listRoles}">
+                    <input type="checkbox" th:field="*{userRoles}" th:text="${role.name}" th:value="${role.id}">
+                </th:block>
+            </div>
+
+            <input type="submit" value="add">
+
+        </form>
+    </div>
+</body>
+
+</html>

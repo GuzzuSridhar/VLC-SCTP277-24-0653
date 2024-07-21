@@ -19,7 +19,6 @@
             <tr>
                 <th>User Id</th>
                 <th>User Name</th>
-                <!-- <th>Enabled</th> -->
                 <th>Role</th>
             </tr>
         </thead>
@@ -37,6 +36,17 @@
             </tr>
         </tbody>
     </table>
+
+    <div sec:authorize="hasAnyAuthority('ADMIN')">
+        <form action="/new">
+            <input type="submit" value="Add User">
+        </form>
+    </div>
+
+    <form action="/logout">
+        <input type="submit" value="logout">
+    </form>
+
 
 </body>
 
