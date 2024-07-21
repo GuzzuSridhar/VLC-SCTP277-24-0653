@@ -28,8 +28,6 @@ public class UserController {
     @RequestMapping("/")
     public String showUsers(Model model, Principal principal) {
         List<User> usersList = userRepository.findAll();
-        // System.out.println(usersList.size());
-        // System.out.println(usersList.get(0).getUserName());
         model.addAttribute("userList", usersList);
         model.addAttribute("userName", principal.getName());
         model.addAttribute("principal", principal);
