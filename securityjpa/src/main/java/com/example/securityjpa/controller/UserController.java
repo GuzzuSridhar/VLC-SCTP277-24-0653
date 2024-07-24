@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,6 +21,7 @@ import com.example.securityjpa.repo.UserRepository;
 public class UserController {
 
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private boolean isEdit = false;
 
     @Autowired
     UserRepository userRepository;
@@ -37,10 +39,29 @@ public class UserController {
 
     @RequestMapping("/new")
     public String addUser(User user, Model model) {
+        isEdit = false;
+        model.addAttribute("isEdit", isEdit);
         model.addAttribute("user", user);
         List<Role> listRoles = roleRepository.findAll();
         model.addAttribute("listRoles", listRoles);
         return "adduser";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public String editUser(@PathVariable("id") Long id, Model model) {
+        isEdit = true;
+        model.addAttribute("isEdit", isEdit);
+        User user = userRepository.findById(id).orElseThrow();
+        model.addAttribute("user", user);
+        List<Role> listRoles = roleRepository.findAll();
+        model.addAttribute("listRoles", listRoles);
+        return "adduser";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String delUser(@PathVariable("id") Long id, Model model) {
+        userRepository.deleteById(id);
+        return "redirect:/";
     }
 
     @RequestMapping("/newrole")

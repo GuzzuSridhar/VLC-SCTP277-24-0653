@@ -46,8 +46,8 @@
                         </th:block>
                     </td>
                     <td>
-                        <a th:href="@{'/delete/' + ${u.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <a th:href="@{'/edit/' +${u.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a th:href="@{'/delete/'+${u.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a th:href="@{'/edit/'+${u.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             </tbody>
@@ -63,7 +63,10 @@
 
         </div>
     </div>
-
+    <footer>
+        <p>
+        <p>&copy; 2024 Dummy Bank. All rights reserved.</p>
+    </footer>
 
 </body>
 
