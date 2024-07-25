@@ -27,7 +27,7 @@ $(document).ready(function () {
     var id = href.match(/id=(\d+)/)[1]; // Extract the ID from the href attribute
 
     var deleteUrl = "/delete?id=" + id;
-    console.log(deleteUrl);
+    // console.log(deleteUrl);
     $("#myModal #delRef").attr("href", deleteUrl);
     $("#myModal").modal();
   });
