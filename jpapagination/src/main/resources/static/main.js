@@ -16,7 +16,7 @@ $(document).ready(function () {
         $(".myForm #name").val(country.name);
         $(".myForm #capital").val(country.capital);
       });
-      $(".myForm #exampleModal").modal();
+      $(".myForm #exampleModal").modal(); // show the modal
     }
   });
 
@@ -29,6 +29,6 @@ $(document).ready(function () {
     var deleteUrl = "/delete?id=" + id;
     // console.log(deleteUrl);
     $("#myModal #delRef").attr("href", deleteUrl);
-    $("#myModal").modal();
+    $("#myModal").modal(); // show the modal
   });
 });

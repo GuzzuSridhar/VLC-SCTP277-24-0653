@@ -20,7 +20,7 @@ public class CountryController {
     @GetMapping("/")
     public String showPage(Model model, @RequestParam(defaultValue = "0") int page) {
         model.addAttribute("data",
-                countryRepository.findAll(PageRequest.of(page, 5)));
+                countryRepository.findAll(PageRequest.of(page, 10))); // the number of records per page
         model.addAttribute("currentPage", page);
         return "index";
     }
